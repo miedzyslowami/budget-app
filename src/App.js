@@ -1,6 +1,7 @@
 import React from 'react';
 import NavBar from './components/NavBar/NavBar';
-import { BrowserRouter, Route, Switch } from "react-router-dom";
+import { Router, Route, Switch } from "react-router-dom";
+import history from './history';
 import Profile from './components/Profile/Profile';
 import Spendings from './components/Spendings/Spendings';
 import PrivateRoute from "./components/PrivateRoute/PrivateRoute";
@@ -11,7 +12,7 @@ function App() {
     <div className="App">
       Test
       <Spendings/>
-      <BrowserRouter>
+      <Router history={history}>
         <header>
           <NavBar />
         </header>
@@ -20,7 +21,7 @@ function App() {
           <PrivateRoute path="/profile" component={Profile} />
           <PrivateRoute path="/spendings" component={Spendings} />
         </Switch>
-      </BrowserRouter>
+      </Router>
     </div>
   );
 }
