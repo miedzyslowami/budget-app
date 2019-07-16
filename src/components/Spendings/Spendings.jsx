@@ -4,7 +4,7 @@ class Spendings extends Component {
     state = {
         data: []
     }
-    
+
     fetchData = async () => {
         try {
             const proxyurl = 'https://cors-anywhere.herokuapp.com/';
@@ -21,8 +21,11 @@ class Spendings extends Component {
         this.fetchData();
     }
     render() {
+        let data = this.state.data.map((element, i) => {
+            return <li key={i}>{element.type}: {element.value}</li>
+        })
         return (
-            <div>Spendings</div>
+            <ol>{data}</ol>
         );
     }
 };
