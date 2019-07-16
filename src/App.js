@@ -1,6 +1,6 @@
 import React from 'react';
 import NavBar from './components/NavBar/NavBar';
-import { Router, Route, Switch } from "react-router-dom";
+import { HashRouter, Route, Switch } from "react-router-dom";
 import history from './history';
 import Profile from './components/Profile/Profile';
 import Spendings from './components/Spendings/Spendings';
@@ -12,7 +12,7 @@ function App() {
     <div className="App">
       Test
       <Spendings/>
-      <Router history={history}>
+      <HashRouter history={history}>
         <header>
           <NavBar />
         </header>
@@ -21,7 +21,7 @@ function App() {
           <PrivateRoute path="/profile" component={Profile} />
           <PrivateRoute path="/spendings" component={Spendings} />
         </Switch>
-      </Router>
+      </HashRouter>
     </div>
   );
 }
