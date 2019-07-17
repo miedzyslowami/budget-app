@@ -7,13 +7,16 @@ import config from "./auth_config.json";
 
 // A function that routes the user to the right place
 // after login
+
+const mypath = window.location.origin + window.location.pathname;
+
 const onRedirectCallback = appState => {
   window.history.replaceState(
     {},
     document.title,
     appState && appState.targetUrl
       ? appState.targetUrl
-      : window.location.pathname
+      : mypath
   );
 };
 
@@ -21,9 +24,9 @@ ReactDOM.render(
   <Auth0Provider
     domain={config.domain}
     client_id={config.clientId}
-    redirect_uri={window.location.origin}
+    redirect_uri='https://miedzyslowami.github.io/budget-app'
     onRedirectCallback={onRedirectCallback}
->
+  >
     <App />
   </Auth0Provider>,
   document.getElementById("root")
