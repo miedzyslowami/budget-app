@@ -1,4 +1,5 @@
 {
   "domain": "miedzyslowami.eu.auth0.com",
-  "clientId": "rS75NG14cW04DlVB0iGsVOye7FuElbzU"
+  "clientId": "rS75NG14cW04DlVB0iGsVOye7FuElbzU",
+  "redirectUri": "https://miedzyslowami.github.io/budget-app/"
 }
