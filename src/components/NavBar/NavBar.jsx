@@ -19,10 +19,10 @@ const NavBar = () => {
             { isAuthenticated && <button onClick={() => logout()}>Log out</button> }
             { isAuthenticated && (
                 <span>
-                    <Link to="/">Home</Link>&nbsp;
-                    <Link to="/profile">Profile</Link>
+                    <Link to="/budget-app/">Home</Link>&nbsp;
+                    <Link to="/budget-app/profile">Profile</Link>
                 </span>
-            )}
+            )}git 
         </div>
     );
 };
