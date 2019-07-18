@@ -15,8 +15,8 @@ function App() {
           <NavBar />
         </header>
         <Switch>
-          <Route path="/" exact />
-          <PrivateRoute path="/profile" component={Profile} />
+          <Route path="/budget-app/" exact />
+          <PrivateRoute path="/budget-app/profile" component={Profile} />
         </Switch>
       </BrowserRouter>
     </div>
