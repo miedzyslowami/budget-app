@@ -24,7 +24,7 @@ ReactDOM.render(
   <Auth0Provider
     domain={config.domain}
     client_id={config.clientId}
-    redirect_uri='/budget-app'
+    redirect_uri='https://miedzyslowami.github.io/budget-app'
     onRedirectCallback={onRedirectCallback}
   >
     <App />

@@ -22,7 +22,7 @@ const NavBar = () => {
                     <Link to="/budget-app/">Home</Link>&nbsp;
                     <Link to="/budget-app/profile">Profile</Link>
                 </span>
-            )}git 
+            )}
         </div>
     );
 };
