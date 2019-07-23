@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 
-
 class AddSpending extends Component {
     state = {
         data: [],
@@ -22,6 +21,7 @@ class AddSpending extends Component {
 
     componentDidMount() {
         this.fetchData();
+        this.setState({user: this.props.user})
     }
 
     render() {
@@ -30,6 +30,7 @@ class AddSpending extends Component {
                 <input type="text" placeholder="income or outcome" name="create_type" />
                 <input type="number" placeholder="value" name="create_value" />
                 <input type="submit" />
+                <input type="hidden" value={this.state.user} name="user_id" />
             </form>
         );
     }

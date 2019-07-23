@@ -3,7 +3,7 @@ import { useAuth0 } from "../../react-auth0-wrapper";
 
 const Profile = (props) => {
     const { loading, user } = useAuth0();
-    const getUser = props.getUser;
+    const getUser = props.getUser(user.sub);
 
     getUser(user);
     if (loading || !user) {

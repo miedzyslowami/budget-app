@@ -8,9 +8,8 @@ import AddSpending from './components/AddSpending/AddSpending';
 import './App.css';
 
 function App() {
-  function getUser(user){
-    console.log(user);
-  }
+
+  const getUser = (user) => user;
 
   return (
     <div className="App">
@@ -19,7 +18,7 @@ function App() {
         <header>
           <NavBar />
         </header>
-        <AddSpending />
+        <AddSpending user={getUser}/>
         <Switch>
           <Route path="/" exact />
           <PrivateRoute path="/budget-app/profile" component={ Profile } getUser={getUser.bind(this)}/>
