@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
-import { useAuth0 } from '../../react-auth0-wrapper';
+
 
 class AddSpending extends Component {
     state = {
@@ -23,8 +22,6 @@ class AddSpending extends Component {
 
     componentDidMount() {
         this.fetchData();
-        const { user } = useAuth0();
-        this.setState({ user: user.sub });
     }
 
     render() {
@@ -33,7 +30,6 @@ class AddSpending extends Component {
                 <input type="text" placeholder="income or outcome" name="create_type" />
                 <input type="number" placeholder="value" name="create_value" />
                 <input type="submit" />
-                <input type="hidden" value={this.state.user} name="user_id" />
             </form>
         );
     }

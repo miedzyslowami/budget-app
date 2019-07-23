@@ -8,6 +8,10 @@ import AddSpending from './components/AddSpending/AddSpending';
 import './App.css';
 
 function App() {
+  function getUser(user){
+    console.log(user);
+  }
+
   return (
     <div className="App">
       <Spendings />
@@ -18,7 +22,7 @@ function App() {
         <AddSpending />
         <Switch>
           <Route path="/" exact />
-          <PrivateRoute path="/budget-app/profile" component={Profile} />
+          <PrivateRoute path="/budget-app/profile" component={ Profile } getUser={getUser.bind(this)}/>
         </Switch>
       </BrowserRouter>
     </div>
