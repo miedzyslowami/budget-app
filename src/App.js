@@ -5,23 +5,23 @@ import Profile from './components/Profile/Profile';
 import Spendings from './components/Spendings/Spendings';
 import PrivateRoute from "./components/PrivateRoute/PrivateRoute";
 import AddSpending from './components/AddSpending/AddSpending';
+import { useAuth0 } from "./react-auth0-wrapper";
 import './App.css';
 
-function App() {
-
-  const getUser = (user) => user;
-
+function App(props) {
+  let location = props.location;
+  const { isAuthenticated, user } = useAuth0();
   return (
     <div className="App">
       <Spendings />
       <BrowserRouter>
         <header>
-          <NavBar />
+          <NavBar location={location}/>
         </header>
-        <AddSpending user={getUser}/>
         <Switch>
-          <Route path="/" exact />
-          <PrivateRoute path="/budget-app/profile" component={ Profile } getUser={getUser.bind(this)}/>
+          <Route path={`${location}`} exact />
+          <PrivateRoute path={`${location}add_spending`} component={ AddSpending}/>
+          <PrivateRoute path={`${location}profile`} component={ Profile } />
         </Switch>
       </BrowserRouter>
     </div>

@@ -1,9 +1,12 @@
 import React, { Component } from 'react';
 
 class AddSpending extends Component {
+    
     state = {
         data: [],
-        user: ''
+        user: this.props.user,
+        type: '',
+        value: ''
     };
 
 
@@ -19,17 +22,42 @@ class AddSpending extends Component {
         }
     }
 
+    handleTypeChange = (e) =>{
+        this.setState({
+            type:e.target.value
+        })
+    };
+
+    handleValueChange = (e) =>{
+        this.setState({
+            value:e.target.value
+        })
+    };
+
     componentDidMount() {
         this.fetchData();
-        this.setState({user: this.props.user})
+        console.log('test',this.props.user);
     }
+
+    submitForm = (e) => {
+        e.preventDefault();
+        console.log({user: this.state.user, type: this.state.type, value: this.state.value});
+            fetch('https://warm-bayou-54949.herokuapp.com/add_transaction', {
+              method: 'post',
+              body: JSON.stringify({type: this.state.type, value: this.state.value})
+            }).then(function(response) {
+              return response.json();
+            }).then(function(data) {
+                console.log(data)
+            });
+          }
 
     render() {
         return (
-            <form method="POST" action="https://warm-bayou-54949.herokuapp.com/add_transaction">
-                <input type="text" placeholder="income or outcome" name="create_type" />
-                <input type="number" placeholder="value" name="create_value" />
-                <input type="submit" />
+            <form>
+                <input type="text" placeholder="income or outcome" name="create_type" value={this.state.type} onChange={this.handleTypeChange} />
+                <input type="number" placeholder="value" name="create_value" value={this.state.value} onChange={this.handleValueChange} />
+                <input type="submit" onClick={this.submitForm}/>
                 <input type="hidden" value={this.state.user} name="user_id" />
             </form>
         );
